@@ -21,12 +21,18 @@ func createLinkedList(nums []int) *ListNode {
 }
 
 func reverseList(head *ListNode) *ListNode {
-	newList := &ListNode{}
-	for i := 0; i < 10; i++ {
+	var prev *ListNode = nil
+	curr := head
 
-		fmt.Println(i)
+	for curr != nil {
+		fmt.Println(curr)
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
 	}
-	return newList
+	
+	return prev
 }
 
 func main() {
